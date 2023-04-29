@@ -26,12 +26,12 @@ class CommentForm extends Component {
     this.state = {
       isModalOpen: false,
       Rating: "",
-      Your_Name: "",
+      Name: "",
       Your_Comment: "",
       touched: {
         Rating: 0,
         Your_Comment: false,
-        Your_Name: false,
+        Name: false,
       },
     };
     this.toggleCommentModal = this.toggleCommentModal.bind(this);
@@ -42,21 +42,21 @@ class CommentForm extends Component {
       isModalOpen: !this.state.isModalOpen,
     });
   }
-  validate_Comment(Rating, Your_Name, Your_Comment) {
+  validate_Comment(Rating, Name, Your_Comment) {
     const errors = {
       Rating: "",
       Your_Comment: "",
-      Your_Name: "",
+      Name: "",
     };
     
-    if (this.state.touched.Your_Name && Your_Name.length < 3)
+    if (this.state.touched.Name && Name.length < 3)
       {
-        errors.Your_Name = "Must be greater than 2 characters";
+        errors.Name = "Must be greater than 2 characters";
       }
-      if (this.state.touched.Your_Name && Your_Name.length >15)
+      if (this.state.touched.Name && Name.length >15)
       {
 
-      errors.Your_Name = "Must be 15 charactrers or less";
+      errors.Name = "Must be 15 charactrers or less";
       }
       console.log(errors);
     return errors;
@@ -78,7 +78,7 @@ class CommentForm extends Component {
   render() {
     const errors = this.validate_Comment(
       this.state.Rating,
-      this.state.Your_Name,
+      this.state.Name,
       this.state.Your_Comment
     );
     return (
@@ -135,14 +135,14 @@ class CommentForm extends Component {
                 <Label>Your Name</Label>
                 <Input
                   type="text"
-                  value={this.state.Your_Name}
-                  name="Your_Name"
+                  value={this.state.Name}
+                  name="Name"
                   onChange={this.handleInputChange}
-                  valid={errors.Your_Name===""}
-                  invalid={errors.Your_Name!==""}
-                  onBlur={this.handleBlur("Your_Name")}
+                  valid={errors.Name===""}
+                  invalid={errors.Name!==""}
+                  onBlur={this.handleBlur("Name")}
                 />
-                <FormFeedback>{errors.Your_Name}</FormFeedback>
+                <FormFeedback>{errors.Name}</FormFeedback>
               </FormGroup>
               <FormGroup>
                 <Label>Your Comment</Label>
