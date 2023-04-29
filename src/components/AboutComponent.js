@@ -15,7 +15,7 @@ function RenderLeader({ leader }) {
       <div className="container">
         <div className="row">
           <div className="col-2">
-            <Media object src={leader.image} height="130" alt={leader.name} />
+            <Media object src={leader.image} height="150" alt={leader.name} />
           </div>
           <div className="col-10">
             <Media heading>{leader.name}</Media>
